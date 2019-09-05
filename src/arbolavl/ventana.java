@@ -39,8 +39,7 @@ Graphics g;
     private void initComponents() {
 
         agragarB = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        Panel = new javax.swing.JPanel();
+        Panel = new javax.swing.JScrollPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -51,38 +50,28 @@ Graphics g;
             }
         });
 
-        javax.swing.GroupLayout PanelLayout = new javax.swing.GroupLayout(Panel);
-        Panel.setLayout(PanelLayout);
-        PanelLayout.setHorizontalGroup(
-            PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 715, Short.MAX_VALUE)
-        );
-        PanelLayout.setVerticalGroup(
-            PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 344, Short.MAX_VALUE)
-        );
-
-        jScrollPane1.setViewportView(Panel);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(agragarB))
-                .addContainerGap(34, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(68, 68, 68)
+                        .addComponent(agragarB))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(Panel, javax.swing.GroupLayout.PREFERRED_SIZE, 715, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(35, 35, 35)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                .addComponent(Panel, javax.swing.GroupLayout.DEFAULT_SIZE, 342, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(agragarB)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(29, 29, 29))
         );
 
         pack();
@@ -91,7 +80,7 @@ Graphics g;
     private void agragarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agragarBActionPerformed
        int i = Integer.parseInt(JOptionPane.showInputDialog("Digite el valor:"));
         if (g==null ) {
-            Graphics g = Panel.getGraphics();
+             g = Panel.getGraphics();
             arbol= new Metodos();
         }
        int x= Panel.getWidth()/2;
@@ -104,7 +93,7 @@ Graphics g;
    
     
         public void pintarr(Graphics g, int x, int y, Nodo n) {
-        if (n == null)
+            if (n == null)
         {}
         else {
             System.out.println(arbol.completos(n)+" completos");
@@ -162,8 +151,7 @@ Graphics g;
     }
        
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel Panel;
+    private javax.swing.JScrollPane Panel;
     private javax.swing.JButton agragarB;
-    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
