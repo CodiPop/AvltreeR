@@ -24,6 +24,8 @@ public class Recorridos {
                 raiz=raiz.getDerecho();
             }
         }while(!pila.isEmpty() || raiz!=null);
+        System.out.println(" ");
+        System.out.println("+++++++++++++++++++++++++++++++");
     }
     public static void inOrdenR(Nodo raiz){
         if (raiz!=null) {

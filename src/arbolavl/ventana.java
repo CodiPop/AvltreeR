@@ -15,11 +15,12 @@ import javax.swing.JOptionPane;
  * @author Dren
  */
 public class ventana extends javax.swing.JFrame {
-    Graphics g;
+
     public static final int an = 50;
     public static final int diam = 30;
     public static final int r = diam / 2;
     Metodos arbol;
+    Recorridos R;
     /**
      * Creates new form ventana
      */
@@ -80,7 +81,7 @@ public class ventana extends javax.swing.JFrame {
        int i = Integer.valueOf(s);
        int x= Panel.getWidth()/2;
        raiz=Metodos.insertarAVL(raiz,i);
-       preOrdenNR(raiz);
+       R.preOrdenNR(raiz);
        pintarr(g,x/2,20,raiz);
     }//GEN-LAST:event_agragarBActionPerformed
 
@@ -105,22 +106,7 @@ public class ventana extends javax.swing.JFrame {
             g.drawString(dato, x + 12, y + 18);
         }
     }
-    public static void preOrdenNR(Nodo raiz){
-        Stack<Nodo> pila = new Stack();
-        do{
-            if(raiz!=null){
-                System.out.print(raiz.getDato()+" ");  
-                
-                pila.add(raiz);
-                raiz=raiz.getIzquierdo();
-            }else{
-                raiz=pila.pop();
-                raiz=raiz.getDerecho();
-            }
-        }while(!pila.isEmpty() || raiz!=null);
-        System.out.println(" ");
-        System.out.println("+++++++++++++++++++++++++++++++");
-    }
+
     /**
      * @param args the command line arguments
      */
