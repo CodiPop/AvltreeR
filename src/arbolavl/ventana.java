@@ -83,7 +83,8 @@ Graphics g;
              g = Panel.getGraphics();
             arbol= new Metodos();
         }
-       int x= Panel.getWidth()/2;
+        super.repaint();
+       int x= Panel.getWidth();
        JOptionPane.showMessageDialog(null, x);
        raiz=Metodos.insertarAVL(raiz,i);
        R.preOrdenNR(raiz);
@@ -111,7 +112,7 @@ Graphics g;
                 pintarr(g,x + an + EXTRA ,y + an,n.getDerecho());
                 g.setColor(Color.yellow);
                 String dato=""+n.getDato();
-            g.drawString(dato, x + 12, y + 18);
+                g.drawString(dato, x + 12, y + 18);
         }
     }
 
