@@ -5,6 +5,9 @@
  */
 package arbolavl;
 
+import java.util.Stack;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Dren
@@ -28,6 +31,7 @@ public class ventana extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        agragarB = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -42,13 +46,25 @@ public class ventana extends javax.swing.JFrame {
             .addGap(0, 330, Short.MAX_VALUE)
         );
 
+        agragarB.setText("Agregar");
+        agragarB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                agragarBActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(agragarB)))
                 .addContainerGap(50, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -56,12 +72,38 @@ public class ventana extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(agragarB)
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void agragarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agragarBActionPerformed
+       String s = JOptionPane.showInputDialog("Digite el valor:");
+       int i = Integer.valueOf(s);
+       raiz=Metodos.insertarAVL(raiz,i);
+       preOrdenNR(raiz);
+       
+    }//GEN-LAST:event_agragarBActionPerformed
+
+    public static void preOrdenNR(Nodo raiz){
+        Stack<Nodo> pila = new Stack();
+        do{
+            if(raiz!=null){
+                System.out.print(raiz.getDato()+" ");  
+                
+                pila.add(raiz);
+                raiz=raiz.getIzquierdo();
+            }else{
+                raiz=pila.pop();
+                raiz=raiz.getDerecho();
+            }
+        }while(!pila.isEmpty() || raiz!=null);
+        System.out.println(" ");
+        System.out.println("+++++++++++++++++++++++++++++++");
+    }
     /**
      * @param args the command line arguments
      */
@@ -96,8 +138,9 @@ public class ventana extends javax.swing.JFrame {
             }
         });
     }
-
+        Nodo raiz=null;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton agragarB;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
