@@ -86,7 +86,7 @@ public class ventana extends javax.swing.JFrame {
     }//GEN-LAST:event_agragarBActionPerformed
 
     public void inicio(){
-    g= Panel.getGraphics();
+     Graphics g = Panel.getGraphics();
     
     }
     
