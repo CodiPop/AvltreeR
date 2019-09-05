@@ -92,6 +92,7 @@ Graphics g;
        int i = Integer.parseInt(JOptionPane.showInputDialog("Digite el valor:"));
         if (g==null ) {
             Graphics g = Panel.getGraphics();
+            arbol= new Metodos();
         }
        int x= Panel.getWidth()/2;
        JOptionPane.showMessageDialog(null, x);
