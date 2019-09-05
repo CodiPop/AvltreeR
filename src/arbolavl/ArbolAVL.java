@@ -5,16 +5,20 @@ package arbolavl;
 public class ArbolAVL {
 
     public static void main(String[] args) {
-        Nodo raiz=null;
+      
+        ventana v = new ventana();
+        v.setVisible(true);
         
         //Creación del árbol
-        int n = (int)(Math.random()*20), x;
+        /*int n = (int)(Math.random()*20), x;
         System.out.println("Cantidad de números: "+n);        
         for (int i = 0; i < n; i++) {
             x=(int)(Math.random()*100);
             System.out.print(x+" ");
             raiz=Metodos.insertarAVL(raiz,x);
+          
         }
+        
         
         //Recorridos
         System.out.println("\nRecorrido Preorden:");
@@ -38,7 +42,7 @@ public class ArbolAVL {
         raiz = Metodos.borrarAVL(raiz, x);
         System.out.println("Recorrido Niveles:");
         Recorridos.nivelesNR(raiz);
-        
+        */
     }
     
 }
