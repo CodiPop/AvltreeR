@@ -10,7 +10,7 @@ public class Metodos {
         } else if (dato < raiz.getDato()) {
             raiz.setIzquierdo(insertarAVL(raiz.getIzquierdo(), dato));
         }
-
+        
         int factorBalance = Propiedades.factorBalance(raiz);
 
         if (factorBalance == -2 && Propiedades.factorBalance(raiz.getIzquierdo()) != 1) {
