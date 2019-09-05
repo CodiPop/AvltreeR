@@ -119,5 +119,14 @@ public class Metodos {
 
         return raiz;
     }
-
+    public int completos(Nodo Nodo) {
+        int cont = 0;
+        if (Nodo != null) {
+            cont = completos(Nodo.getIzquierdo()) + completos(Nodo.getDerecho());
+            if (Nodo.getIzquierdo() != null && Nodo.getDerecho() != null) {
+                cont = cont + 1;
+            }
+        }
+        return cont;
+    }
 }
