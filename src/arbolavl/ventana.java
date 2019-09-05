@@ -77,14 +77,19 @@ public class ventana extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void agragarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agragarBActionPerformed
-       String s = JOptionPane.showInputDialog("Digite el valor:");
-       int i = Integer.valueOf(s);
+       int i = Integer.parseInt(JOptionPane.showInputDialog("Digite el valor:"));
+       
        int x= Panel.getWidth()/2;
        raiz=Metodos.insertarAVL(raiz,i);
        R.preOrdenNR(raiz);
        pintarr(g,x/2,20,raiz);
     }//GEN-LAST:event_agragarBActionPerformed
 
+    public void inicio(){
+    g= Panel.getGraphics();
+    
+    }
+    
         public void pintarr(Graphics g, int x, int y, Nodo n) {
         if (n == null)
         {}
