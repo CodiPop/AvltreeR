@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
  * @author Dren
  */
 public class ventana extends javax.swing.JFrame {
-
+Graphics g;
     public static final int an = 50;
     public static final int diam = 30;
     public static final int r = diam / 2;
@@ -38,7 +38,7 @@ public class ventana extends javax.swing.JFrame {
     private void initComponents() {
 
         agragarB = new javax.swing.JButton();
-        Panel = new javax.swing.JScrollPane();
+        jScrollPane1 = new javax.swing.JScrollPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -59,16 +59,16 @@ public class ventana extends javax.swing.JFrame {
                         .addGap(31, 31, 31)
                         .addComponent(agragarB))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addComponent(Panel, javax.swing.GroupLayout.PREFERRED_SIZE, 614, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(18, Short.MAX_VALUE))
+                        .addGap(61, 61, 61)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(Panel, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(agragarB)
                 .addContainerGap(36, Short.MAX_VALUE))
         );
@@ -148,7 +148,7 @@ public class ventana extends javax.swing.JFrame {
     }
         Nodo raiz=null;
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JScrollPane Panel;
     private javax.swing.JButton agragarB;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
