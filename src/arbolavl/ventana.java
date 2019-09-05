@@ -21,6 +21,7 @@ Graphics g;
     public static final int r = diam / 2;
     Metodos arbol;
     Recorridos R;
+     Nodo raiz=null;
     /**
      * Creates new form ventana
      */
@@ -39,6 +40,7 @@ Graphics g;
 
         agragarB = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
+        Panel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -49,28 +51,38 @@ Graphics g;
             }
         });
 
+        javax.swing.GroupLayout PanelLayout = new javax.swing.GroupLayout(Panel);
+        Panel.setLayout(PanelLayout);
+        PanelLayout.setHorizontalGroup(
+            PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 715, Short.MAX_VALUE)
+        );
+        PanelLayout.setVerticalGroup(
+            PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 344, Short.MAX_VALUE)
+        );
+
+        jScrollPane1.setViewportView(Panel);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(agragarB))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(61, 61, 61)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(25, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(agragarB))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(35, 35, 35)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
                 .addComponent(agragarB)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -78,25 +90,25 @@ Graphics g;
 
     private void agragarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agragarBActionPerformed
        int i = Integer.parseInt(JOptionPane.showInputDialog("Digite el valor:"));
-       
+        if (g==null ) {
+            Graphics g = Panel.getGraphics();
+        }
        int x= Panel.getWidth()/2;
+       JOptionPane.showMessageDialog(null, x);
        raiz=Metodos.insertarAVL(raiz,i);
        R.preOrdenNR(raiz);
        pintarr(g,x/2,20,raiz);
     }//GEN-LAST:event_agragarBActionPerformed
 
-    public void inicio(){
-     Graphics g = Panel.getGraphics();
-    
-    }
+   
     
         public void pintarr(Graphics g, int x, int y, Nodo n) {
         if (n == null)
         {}
         else {
+            System.out.println(arbol.completos(n)+" completos");
             int EXTRA = arbol.completos(n) * (an / 2);
             g.drawOval(x, y, diam, diam);
-
             if (n.getIzquierdo()!= null)
                 g.drawLine(x + r, y + r, x - an - EXTRA + r, y + r + an);
                 g.setColor(Color.BLACK);
@@ -104,6 +116,7 @@ Graphics g;
                 g.drawLine(x + r, y + r, x + an + EXTRA + r, y + r + an);
                 g.setColor(Color.BLACK);
                 g.fillOval(x, y, diam, diam);
+                
                 pintarr(g,x - an - EXTRA ,y + an,n.getIzquierdo());
                 pintarr(g,x + an + EXTRA ,y + an,n.getDerecho());
                 g.setColor(Color.yellow);
@@ -146,8 +159,9 @@ Graphics g;
             }
         });
     }
-        Nodo raiz=null;
+       
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Panel;
     private javax.swing.JButton agragarB;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
