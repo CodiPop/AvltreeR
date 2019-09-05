@@ -81,12 +81,12 @@ Graphics g;
        int i = Integer.parseInt(JOptionPane.showInputDialog("Digite el valor:"));
         if (g==null ) {
              g = Panel.getGraphics();
-            arbol= new Metodos();
+            arbol= new Metodos(this);
         }
         super.repaint();
        int x= Panel.getWidth();
        JOptionPane.showMessageDialog(null, x);
-       raiz=Metodos.insertarAVL(raiz,i);
+       raiz=Metodos.insertarAVL(raiz,i,x);
        R.preOrdenNR(raiz);
        pintarr(g,x/2,20,raiz);
     }//GEN-LAST:event_agragarBActionPerformed

@@ -1,16 +1,29 @@
 package arbolavl;
 
-public class Metodos {
+import java.awt.Graphics;
 
-    public static Nodo insertarAVL(Nodo raiz, int dato) {
+public class Metodos {
+  
+   ventana v;
+
+    public Metodos(ventana v) {
+        this.v = v;
+    }
+
+    public static Nodo insertarAVL(Nodo raiz, int dato,int x) {
         if (raiz == null) {
             return new Nodo(dato);
         } else if (dato > raiz.getDato()) {
-            raiz.setDerecho(insertarAVL(raiz.getDerecho(), dato));
+            raiz.setDerecho(insertarAVL(raiz.getDerecho(), dato,x));
         } else if (dato < raiz.getDato()) {
-            raiz.setIzquierdo(insertarAVL(raiz.getIzquierdo(), dato));
+            raiz.setIzquierdo(insertarAVL(raiz.getIzquierdo(), dato,x));
+            
         }
+        v.pintarr(v.g,x/2,20,raiz);
+       return balanceoAvl(raiz);
+    }
         
+     public static Nodo balanceoAvl(Nodo raiz){
         int factorBalance = Propiedades.factorBalance(raiz);
 
         if (factorBalance == -2 && Propiedades.factorBalance(raiz.getIzquierdo()) != 1) {
