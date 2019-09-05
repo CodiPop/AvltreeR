@@ -5,6 +5,8 @@
  */
 package arbolavl;
 
+import java.awt.Color;
+import java.awt.Graphics;
 import java.util.Stack;
 import javax.swing.JOptionPane;
 
@@ -13,7 +15,11 @@ import javax.swing.JOptionPane;
  * @author Dren
  */
 public class ventana extends javax.swing.JFrame {
-
+    Graphics g;
+    public static final int an = 50;
+    public static final int diam = 30;
+    public static final int r = diam / 2;
+    Metodos arbol;
     /**
      * Creates new form ventana
      */
@@ -83,11 +89,33 @@ public class ventana extends javax.swing.JFrame {
     private void agragarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agragarBActionPerformed
        String s = JOptionPane.showInputDialog("Digite el valor:");
        int i = Integer.valueOf(s);
+       int x= Panel.getWidth()/2;
        raiz=Metodos.insertarAVL(raiz,i);
        preOrdenNR(raiz);
-       
+       pintarr(g,x/2,20,raiz);
     }//GEN-LAST:event_agragarBActionPerformed
 
+        public void pintarr(Graphics g, int x, int y, Nodo n) {
+        if (n == null)
+        {}
+        else {
+            int EXTRA = arbol.completos(n) * (an / 2);
+            g.drawOval(x, y, diam, diam);
+
+            if (n.getIzquierdo()!= null)
+                g.drawLine(x + r, y + r, x - an - EXTRA + r, y + r + an);
+                g.setColor(Color.BLACK);
+            if (n.getDerecho() != null) 
+                g.drawLine(x + r, y + r, x + an + EXTRA + r, y + r + an);
+                g.setColor(Color.BLACK);
+                g.fillOval(x, y, diam, diam);
+                pintarr(g,x - an - EXTRA ,y + an,n.getIzquierdo());
+                pintarr(g,x + an + EXTRA ,y + an,n.getDerecho());
+                g.setColor(Color.yellow);
+                String dato=""+n.getDato();
+            g.drawString(dato, x + 12, y + 18);
+        }
+    }
     public static void preOrdenNR(Nodo raiz){
         Stack<Nodo> pila = new Stack();
         do{
